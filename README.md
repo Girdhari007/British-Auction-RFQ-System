@@ -73,8 +73,9 @@ graph LR
     API --> Scheduler[(Auction Scheduler / Extension Logic)]
     Scheduler --> DB
     API -->|Logs| ActivityDB[(ActivityLog Collection)]
-    note right of Scheduler: Monitors active auctions, applies<br/>trigger-window + extension rules
 ```
+
+**Scheduler monitors active auctions and applies trigger-window + extension rules**
 
 ### Components
 
