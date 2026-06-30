@@ -11,9 +11,32 @@ const bidSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    carrierName: {
+      type: String,
+      required: true,
+    },
     amount: {
       type: Number,
       required: true,
+    },
+    freightCharges: {
+      type: Number,
+      default: 0,
+    },
+    originCharges: {
+      type: Number,
+      default: 0,
+    },
+    destinationCharges: {
+      type: Number,
+      default: 0,
+    },
+    transitTime: {
+      type: String,
+    },
+    validityDays: {
+      type: Number,
+      default: 7,
     },
     deliveryDate: {
       type: Date,

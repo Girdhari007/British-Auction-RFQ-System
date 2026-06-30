@@ -11,20 +11,28 @@ function BidTable({ bids }) {
         <thead>
           <tr>
             <th>Supplier ID</th>
+            <th>Carrier</th>
             <th>Amount</th>
-            <th>Delivery Date</th>
+            <th>Freight</th>
+            <th>Origin</th>
+            <th>Destination</th>
+            <th>Transit</th>
+            <th>Validity</th>
             <th>Status</th>
-            <th>Notes</th>
           </tr>
         </thead>
         <tbody>
           {bids.map((bid) => (
             <tr key={bid._id}>
               <td>{bid.supplierId}</td>
+              <td>{bid.carrierName}</td>
               <td>${bid.amount.toFixed(2)}</td>
-              <td>{new Date(bid.deliveryDate).toLocaleDateString()}</td>
+              <td>${bid.freightCharges?.toFixed(2) || '0.00'}</td>
+              <td>${bid.originCharges?.toFixed(2) || '0.00'}</td>
+              <td>${bid.destinationCharges?.toFixed(2) || '0.00'}</td>
+              <td>{bid.transitTime || '—'}</td>
+              <td>{bid.validityDays || '—'} days</td>
               <td>{bid.status}</td>
-              <td>{bid.notes}</td>
             </tr>
           ))}
         </tbody>

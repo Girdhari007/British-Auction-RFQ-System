@@ -6,6 +6,12 @@ const rfqSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    referenceId: {
+      type: String,
+      required: true,
+      unique: true,
+      trim: true,
+    },
     description: {
       type: String,
       required: true,
@@ -19,9 +25,26 @@ const rfqSchema = new mongoose.Schema(
       type: Date,
       default: Date.now,
     },
-    endDate: {
+    bidCloseDate: {
       type: Date,
       required: true,
+    },
+    forcedCloseDate: {
+      type: Date,
+      required: true,
+    },
+    triggerWindowMinutes: {
+      type: Number,
+      default: 10,
+      min: 1,
+    },
+    extensionMinutes: {
+      type: Number,
+      default: 5,
+      min: 1,
+    },
+    pickupDate: {
+      type: Date,
     },
     budget: {
       type: Number,

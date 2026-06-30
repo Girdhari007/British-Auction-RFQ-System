@@ -62,6 +62,11 @@ function AuctionDetails() {
       <h2>{auction.title}</h2>
       <p>{auction.description}</p>
       <p>Status: {auction.status}</p>
+      <p>Reference ID: {auction.referenceId}</p>
+      <p>Bid Close: {new Date(auction.bidCloseDate).toLocaleString()}</p>
+      <p>Forced Close: {new Date(auction.forcedCloseDate).toLocaleString()}</p>
+      <p>Trigger Window: {auction.triggerWindowMinutes} minutes</p>
+      <p>Extension Duration: {auction.extensionMinutes} minutes</p>
 
       <section>
         <h3>Submit a Bid</h3>
