@@ -68,14 +68,23 @@ ISC
 
 ```mermaid
 graph LR
-    Browser[Client (React)] -->|REST / Websockets| API[Express API Server]
-    API --> DB[(MongoDB)]
-    API --> Scheduler[(Auction Scheduler / Extension Logic)]
-    Scheduler --> DB
-    API -->|Logs| ActivityDB[(ActivityLog Collection)]
+    A["Client (React)"]
+    B["Express API Server"]
+    C["MongoDB"]
+    D["Scheduler"]
+    E["ActivityLog"]
+    A -->|REST APIs| B
+    B --> C
+    B --> D
+    D --> C
+    B --> E
 ```
 
-**Scheduler monitors active auctions and applies trigger-window + extension rules**
+**Data Flow:**
+- Client communicates with API Server via REST endpoints
+- Scheduler monitors and extends auctions based on trigger rules
+- All activities are logged in ActivityLog collection
+- MongoDB persists all data
 
 ### Components
 
